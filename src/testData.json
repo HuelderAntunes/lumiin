@@ -1,0 +1,34 @@
+{
+  "menuitemList": [
+    {
+      "route": "#",
+      "title": "Inicio",
+      "icon": "home",
+      "active": true
+    },
+    {
+      "route": "#",
+      "title": "Fornecedores",
+      "icon": "truck",
+      "active": false
+    },
+    {
+      "route": "#",
+      "title": "Controle de Equipe",
+      "icon": "users",
+      "active": false
+    },
+    {
+      "route": "#",
+      "title": "Orçamentos",
+      "icon": "money",
+      "active": false
+    },
+    {
+      "route": "#",
+      "title": "Biblioteca",
+      "icon": "book",
+      "active": false
+    }
+  ]
+}
