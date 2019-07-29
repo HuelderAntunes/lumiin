@@ -1,57 +1,70 @@
 import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import "./styles/global";
+import colors from "./styles/colors";
 import GlobalStyle from "./styles/global";
 import baseData from "./testData.json";
-import Home from "./pages/Home";
-import { Page, Profile } from "./styles/app";
+import { Page, Profile, ProfileItem, LoadingContainer } from "./styles/app";
 import ExpandedButton from "./components/ExpandButton";
-import Avatar from "./images/avatar/leo.png";
-import { Menu, Dropdown, Icon } from "antd";
+import { Menu, Dropdown } from "antd";
+import { useAuth0 } from "./react-auth0-wrapper";
+import { Redirect, Link, Switch, Route } from "react-router-dom";
+import { Preferences, Home } from "./pages"
+import Loader from 'react-loader-spinner';
 
-const App = () => {
+
+const App = (props) => {
+  const { logout, loading, user  } = useAuth0();
+
+
   const sidebarState = useState(true);
-  const [collapse, setCollpase] = sidebarState;
+  const [collapse] = sidebarState;
+
+  if(loading) return (<LoadingContainer><Loader type="Triangle"color={colors.primary} height="100"	 width="100"/></LoadingContainer>)
+
   const menu = (
     <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://localhost:3000/"
-        >
-          Preferencias
-        </a>
+        <Link to={`${props.match.path}/profile`}>
+          <ProfileItem >
+              Preferências
+          </ProfileItem>
+        </Link>
       </Menu.Item>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://localhost:3000/"
+        <ProfileItem
+          onClick={ () => logout() }
         >
           Logout
-        </a>
+        </ProfileItem>
       </Menu.Item>
     </Menu>
   );
 
   return (
     <React.Fragment>
+
       <Sidebar menuItemList={baseData.menuitemList} state={sidebarState} />
       <Profile>
         <Dropdown overlay={menu}>
-          <a className="ant-dropdown-link" href="http://localhost:3000/">
-            <ExpandedButton image={Avatar} text="Leônidas M." />
-          </a>
+          <div className="ant-dropdown-link">
+            <ExpandedButton image={ user.picture } text={ user.nickname } />
+          </div>
         </Dropdown>
       </Profile>
       <Page collapse={collapse}>
-        <Home />
+        <Switch>
+          <Route path={ `${props.match.path}/home` }  component={ Home } />
+          <Route path={ `${props.match.path}/profile` } component={ Preferences } />
+          <Redirect from="*" to={ `${props.match.path}/home` } />
+        </Switch>
       </Page>
 
       <GlobalStyle />
     </React.Fragment>
   );
 };
+
+
 
 export default App;

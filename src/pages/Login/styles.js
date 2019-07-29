@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../styles/colors"
 
 export const Container = styled.div`
   height: 100%;
@@ -6,7 +7,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0f203b;
+  background-color: ${colors.secondary};
+
+  h3 {
+    color: ${colors.primary};
+  }
 
   div {
     display: flex;

@@ -1,7 +1,8 @@
 import React from "react";
 import Title from "../../components/Title";
-import { Carousel, Card, Col, Row } from "antd";
+import { Card, Col, Row } from "antd";
 import { Container } from "./styles";
+
 export const Home = props => {
   return (
     <React.Fragment>
