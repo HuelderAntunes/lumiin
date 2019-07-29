@@ -22,4 +22,5 @@ body {
 
 `;
 
+
 export default GlobalStyle;

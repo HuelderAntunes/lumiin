@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../styles/colors"
 
 export const BottomBorder = styled.h1`
   font-family: "Viga", sans-serif;
@@ -8,6 +9,6 @@ export const BottomBorder = styled.h1`
 
   span {
     border-bottom: 2px solid;
-    border-bottom-color: #66fca2;
+    border-bottom-color: ${colors.primary};
   }
 `;

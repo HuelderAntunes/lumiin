@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import colors from "../../styles/colors"
+
 
 export const Container = styled.aside`
   height: 100%;
   width: ${({ collapse }) => (!collapse ? "240px" : "70px")};
-  background: #030c2d;
-  color: #e8e8e8;
+  background: ${colors.secondary};
+  color: ${colors.gray};
 
   display: flex;
   flex-direction: column;
@@ -26,16 +28,16 @@ export const Container = styled.aside`
 `;
 
 export const CollapseButton = styled.button`
-  background-color: #0f203b;
+  background-color: ${colors.secondary};
   border: none;
   cursor: pointer;
   padding: 10px;
   border-radius: 50%;
-  color: #66fca2;
+  color: ${colors.primary};
   left: 16px;
   transition: all 0.2s;
   &:hover {
-    color: #ffffff;
+    color: ${colors.white};
   }
 `;
 
@@ -52,7 +54,7 @@ export const Menu = styled.ul`
 export const MenuItem = styled.li`
   padding: 10px;
   font-weight: ${({ active }) => (active ? `bold` : "none")};
-  color: #e8e8e8;
+  color: ${colors.gray};
 
   span {
     margin-left: 20px;
@@ -63,6 +65,6 @@ export const MenuItem = styled.li`
   }
 
   a:hover {
-    color: #66fca2;
+    color: ${colors.primary};
   }
 `;

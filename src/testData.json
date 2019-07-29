@@ -1,13 +1,13 @@
 {
   "menuitemList": [
     {
-      "route": "#",
+      "route": "home",
       "title": "Inicio",
       "icon": "home",
       "active": true
     },
     {
-      "route": "#",
+      "route": "provider",
       "title": "Fornecedores",
       "icon": "truck",
       "active": false
