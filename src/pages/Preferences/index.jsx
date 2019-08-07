@@ -18,7 +18,7 @@ const Preferences = () => {
   };
 
   return (<div>
-    <Title>Perfil</Title>
+    <Title>PERFIL</Title>
     <FormContainer>
       <ProfileForm />
     </FormContainer>

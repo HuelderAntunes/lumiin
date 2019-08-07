@@ -25,7 +25,7 @@ const ProfileForm = (props) => {
   return (<div>
     <Form>
     <Row>
-      <Col span={20}>
+      <Col span={8}>
         <Form.Item label="Nickname">
               {getFieldDecorator('email', {
                 initialValue: user.nickname,
@@ -54,8 +54,8 @@ const ProfileForm = (props) => {
             </Button>
         </Form.Item>
       </Col>
-      <Col span={4} >
-          <Form.Item label="Avatar" style={{ float: "right" }}>
+      <Col span={16} >
+          <Form.Item label="Avatar" style={{ float: "left", marginLeft: "10px" }}>
             <img src={user.picture} alt="Avatar" style={{ display: "block", width: "150px" }} />
             {getFieldDecorator('avatar', {
                 initialValue: user.nickname,
